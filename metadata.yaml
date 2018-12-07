@@ -3,12 +3,13 @@ version: 0.1.0
 usage: to Makefile without The Make but neet docker
 description: Makefile with docker
 exec:
-  command: docker run -it --rm -v ${pwd}:/data -v $(M2_HOME):/root/.m2/repository softleader/slctl-make
+  command: $SL_PLUGIN_DIR/run-make.sh
   platform:
-  - os: darwin
-    command: sh -c "docker run -it --rm -v ${pwd}:/data -v $(M2_HOME):/root/.m2 softleader/slctl-make"
   - os: windows
     command: $SL_PLUGIN_DIR\run-make.bat
 hook:
-  command: docker build -t softleader/slctl-make $SL_PLUGIN_DIR\
+  command: docker build -t softleader/slctl-make $SL_PLUGIN_DIR
+  platform:
+  - os: windows
+    command: docker build -t softleader/slctl-make $SL_PLUGIN_DIR\
 ignoreglobalflags: false
