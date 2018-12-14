@@ -1,5 +1,5 @@
 name: make
-version: 0.1.0
+version: 0.2.0
 usage: to Makefile without The Make but neet docker
 description: Makefile with docker
 exec:
